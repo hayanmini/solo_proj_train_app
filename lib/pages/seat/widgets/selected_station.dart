@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class SeatSelectEx extends StatelessWidget {
+class SelectedStation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text("SeatSelectEx");
+    return Text("SelectedStation");
   }
 }
