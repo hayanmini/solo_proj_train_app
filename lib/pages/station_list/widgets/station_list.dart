@@ -20,30 +20,36 @@ class StationList extends StatelessWidget {
     );
   }
 
-  Container stationName(selectName) {
-    return Container(
-      width: double.infinity,
-      height: 50,
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Colors.grey[300]!,
-          ),
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "  $selectName",
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+  // 역 리스트
+  Widget stationName(selectName) {
+    return GestureDetector(
+      onTap: () {
+        //? 정보를전달하고
+        // 현재화면을 닫는다.
+      },
+      child: Container(
+          width: double.infinity,
+          height: 50,
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                color: Colors.grey[300]!,
+              ),
             ),
           ),
-        ],
-      ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "  $selectName",
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          )),
     );
   }
 }

@@ -15,7 +15,8 @@ class BookNowBotton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             )),
-        child: Text(
+        // 텍스트 디자인
+        child: const Text(
           "예매 하기",
           style: TextStyle(
             color: Colors.white,

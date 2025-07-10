@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
 
 class StationBox extends StatelessWidget {
   @override
@@ -12,36 +13,48 @@ class StationBox extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          whereStation("출발역", "선택"),
+          whereStation(context, true, "선택"),
           Container(
             width: 2,
             height: 50,
             color: Colors.grey[400],
           ),
-          whereStation("도착역", "선택"),
+          whereStation(context, false, "선택"),
         ],
       ),
     );
   }
 
   // 텍스트 클래스 분리
-  Column whereStation(String startEnd, String StationName) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          startEnd,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Colors.grey,
-            fontWeight: FontWeight.bold,
+  Widget whereStation(BuildContext context, bool isStart, String StationName) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return StationListPage(isStart);
+            },
           ),
-        ),
-        Text(
-          StationName,
-          style: const TextStyle(fontSize: 40),
-        ),
-      ],
+        );
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            isStart ? "출발역" : "도착역",
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.grey,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            StationName,
+            style: const TextStyle(fontSize: 40),
+          ),
+        ],
+      ),
     );
   }
 }

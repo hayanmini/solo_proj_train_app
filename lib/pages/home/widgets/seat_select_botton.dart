@@ -25,6 +25,7 @@ class SeatSelectBotton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             )),
+        // 텍스트 디자인
         child: const Text(
           "좌석 선택",
           style: TextStyle(
