@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/home/home_page.dart';
 
 class BookNowBotton extends StatelessWidget {
+  //void Function(String row, int col) onSelected;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

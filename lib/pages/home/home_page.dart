@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/home/widgets/seat_select_botton.dart';
 import 'package:flutter_train_app/pages/home/widgets/station_box.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
