@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/home/home_page.dart';
 
 class BookNowBotton extends StatelessWidget {
-  //void Function(String row, int col) onSelected;
+  String rowName;
+  int colNum;
+
+  BookNowBotton(this.rowName, this.colNum);
 
   @override
   Widget build(BuildContext context) {
@@ -13,21 +16,23 @@ class BookNowBotton extends StatelessWidget {
         height: 50,
         child: ElevatedButton(
           // 버튼 상호작용
-          onPressed: () {
-            showCupertinoDialog(
-              context: context,
-              builder: (context) {
-                return CupertinoAlertDialog(
-                  title: const Text("예약 하시겠습니까?"),
-                  content: Text("좌석 : {$rowName}-{$colNum}"),
-                  actions: [
-                    cancelBotton(context),
-                    checkBotton(context),
-                  ],
-                );
-              },
-            );
-          },
+          onPressed: (rowName != "" && colNum != 0)
+              ? () {
+                  showCupertinoDialog(
+                    context: context,
+                    builder: (context) {
+                      return CupertinoAlertDialog(
+                        title: const Text("예약 하시겠습니까?"),
+                        content: Text("좌석 : $rowName-$colNum"),
+                        actions: [
+                          cancelBotton(context),
+                          checkBotton(context),
+                        ],
+                      );
+                    },
+                  );
+                }
+              : null,
 
           // 버튼 디자인
           style: ElevatedButton.styleFrom(

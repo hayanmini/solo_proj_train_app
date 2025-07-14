@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_train_app/pages/home/home_page.dart';
 
-class StationList extends StatelessWidget {
+class StationList extends StatefulWidget {
+  StationList(this.selectedStation);
+  Function(String station) selectedStation;
+
+  @override
+  State<StationList> createState() => _StationListState();
+}
+
+class _StationListState extends State<StationList> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,8 +33,8 @@ class StationList extends StatelessWidget {
   Widget stationName(selectName) {
     return GestureDetector(
       onTap: () {
-        //? 정보를전달하고
-        // 현재화면을 닫는다.
+        widget.selectedStation(selectName);
+        Navigator.pop(context);
       },
       child: Container(
           width: double.infinity,

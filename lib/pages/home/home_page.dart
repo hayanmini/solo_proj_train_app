@@ -8,6 +8,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String startStation = "선택";
+  String endStation = "선택";
+
+  void selectStation(isStart, station) {
+    if (isStart) {
+      startStation = station;
+    } else {
+      endStation = station;
+    }
+    setState(() {});
+  }
+
+  void stationData(String startData, String endData) {
+    startStation = startData;
+    endStation = endData;
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +40,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            StationBox(),
+            StationBox(startStation, endStation, selectStation),
             const SizedBox(height: 20),
-            SeatSelectBotton(),
+            SeatSelectBotton(startStation, endStation),
           ],
         ),
       ),

@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_train_app/pages/station_list/station_list_page.dart';
 
 class StationBox extends StatelessWidget {
+  String startStation;
+  String endStation;
+  Function(bool isStart, String station) station;
+
+  StationBox(this.startStation, this.endStation, this.station);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,13 +19,13 @@ class StationBox extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          whereStation(context, true, "선택"),
+          whereStation(context, true, startStation),
           Container(
             width: 2,
             height: 50,
             color: Colors.grey[400],
           ),
-          whereStation(context, false, "선택"),
+          whereStation(context, false, endStation),
         ],
       ),
     );
@@ -33,7 +39,9 @@ class StationBox extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return StationListPage(isStart);
+              return StationListPage(isStart, (station) {
+                this.station(isStart, station);
+              });
             },
           ),
         );
