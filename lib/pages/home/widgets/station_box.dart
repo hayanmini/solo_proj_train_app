@@ -39,7 +39,9 @@ class StationBox extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return StationListPage(isStart, (station) {
+              return StationListPage(
+                  isStart, startStation != "선택" ? startStation : endStation,
+                  (station) {
                 this.station(isStart, station);
               });
             },

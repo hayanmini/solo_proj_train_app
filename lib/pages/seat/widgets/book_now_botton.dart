@@ -23,7 +23,7 @@ class BookNowBotton extends StatelessWidget {
                     builder: (context) {
                       return CupertinoAlertDialog(
                         title: const Text("예약 하시겠습니까?"),
-                        content: Text("좌석 : $rowName-$colNum"),
+                        content: Text("좌석 : $rowName - $colNum"),
                         actions: [
                           cancelBotton(context),
                           checkBotton(context),

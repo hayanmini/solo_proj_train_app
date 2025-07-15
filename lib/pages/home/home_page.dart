@@ -20,13 +20,6 @@ class _HomePageState extends State<HomePage> {
     setState(() {});
   }
 
-  void stationData(String startData, String endData) {
-    startStation = startData;
-    endStation = endData;
-
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
