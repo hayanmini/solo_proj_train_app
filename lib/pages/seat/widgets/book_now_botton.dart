@@ -58,7 +58,7 @@ class BookNowBotton extends StatelessWidget {
   // 확인 버튼
   Widget checkBotton(BuildContext context) {
     return CupertinoDialogAction(
-      isDefaultAction: true,
+      isDestructiveAction: false,
       onPressed: () {
         Navigator.push(
             context,

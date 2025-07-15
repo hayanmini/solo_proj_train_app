@@ -11,6 +11,7 @@ class StationListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).cardColor,
       appBar: selectedStartEnd(isStart ? "출발역" : "도착역"),
       body: StationList(selected, (String station) {
         this.station(station);
